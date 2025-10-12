@@ -1,0 +1,254 @@
+body {
+  font-family: "Readex Pro", Arial, Helvetica, sans-serif;
+}
+@font-face {
+  font-family: "Cowboy Cadaver";
+  src: url("../fonts/CowboyCadaver-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Readex+Pro:wght@160..700&display=swap");
+
+:root {
+  --white: #f4f4f4;
+  --black: #2c2c2c;
+  --gray: #909090;
+  --red: #ea373d;
+
+  --font-sans: "Readex Pro", sans-serif;
+
+  --background-color: var(--white);
+  --foreground-color: var(--black);
+  --primary-color: var(--red);
+
+  --rhythm: 1.5rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--background-color);
+  color: var(--foreground-color);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  font-weight: 200;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+h3 {
+  letter-spacing: 0.125rem;
+  font-size: 0.75rem;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  padding: calc(var(--rhythm) * 2);
+  margin-bottom: calc(var(--rhythm) * 10);
+  justify-content: space-between;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    padding: var(--rhythm);
+}
+
+.hero {
+  background: url(../assets/hero-image.png) no-repeat center center;
+  background-size: cover;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--white);
+  font-family: "Cowboy Cadaver", sans-serif;
+  font-size: 12rem;
+}
+
+.hero-arrow-icon {
+  position: absolute;
+  bottom: 2rem;
+  animation: bounce 2s infinite;
+}
+
+/* Search Bar Styles */
+
+.search-bar {
+  position: sticky;
+  top: 2rem;
+  align-self: flex-start;
+  z-index: 2;
+  top: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  border-bottom: 1px solid var(--primary-color);
+  margin-bottom: calc(var(--rhythm) * 2);
+}
+
+.search-bar input[type="text"] {
+  flex: 1;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 200;
+  padding: 1.5rem 0;
+  outline: none;
+  border: none;
+  background: var(--background-color);
+  color: var(--foreground-color);
+}
+
+.search-bar button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+/* Browse Recipes Styles */
+
+.recipe-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: auto;
+}
+
+.recipe-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: calc(var(--rhythm) * 2);
+  padding: var(--rhythm) 0;
+  flex: 1;
+}
+
+.recipe-card {
+  all: unset;
+  cursor: pointer;
+  width: 300px;
+  font-family: var(--font-sans);
+}
+
+.recipe-image {
+  width: 300px;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.recipe-title {
+  text-transform: uppercase;
+  color: var(--primary-color);
+  font-size: 1.25rem;
+  line-height: 1.5625rem;
+  margin: 0;
+}
+
+.recipe-subtitle {
+  font-weight: 200;
+  margin-top: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.recipe-info > span {
+  font-weight: 200;
+  color: var(--gray);
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
+}
+
+.recipe-info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--rhythm);
+}
+
+/* Filter Styles */
+.sidebar {
+  position: sticky;
+  top: 2rem;
+  align-self: flex-start;
+  z-index: 2;
+  width: 240px;
+  height: fit-content;
+}
+
+.filter-card {
+  background-image: url("../assets/filter-bg.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: var(--background-color);
+  display: flex;
+  flex-direction: column;
+  gap: var(--rhythm);
+  padding: calc(var(--rhythm) * 2) var(--rhythm);
+}
+
+.filter-title {
+  margin: 0;
+}
+
+.filter-option {
+  font-family: var(--font-sans);
+  font-weight: 200;
+}
+
+.filter-option input[type="checkbox"] {
+  opacity: 0;
+  position: absolute;
+}
+
+.filter-option .checkmark {
+  cursor: pointer;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--background-color);
+  border-radius: 0;
+  background: transparent;
+  position: relative;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+.filter-option input[type="checkbox"]:checked ~ .checkmark {
+  background: var(--background-color);
+}
+
+.clear-filters-button {
+  all: unset;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-weight: 200;
+  width: fit-content;
+  border-bottom: 1px var(--primary-color) dashed;
+}
+
+.clear-filters-button:hover {
+  border-bottom: 1px var(--background-color) dashed;
+}
+
+footer {
+  text-align: center;
+}
