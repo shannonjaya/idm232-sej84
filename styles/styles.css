@@ -196,7 +196,7 @@ header {
 
 .filter-card {
   background-image: url("../assets/filter-bg.svg");
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
   color: var(--background-color);
   display: flex;
@@ -207,6 +207,12 @@ header {
 
 .filter-title {
   margin: 0;
+}
+
+.filter-options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rhythm);
 }
 
 .filter-option {

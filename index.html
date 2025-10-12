@@ -60,32 +60,6 @@
         <div class="filter-card">
           <h3 class="filter-title">Filter By</h3>
           <div class="filter-options">
-            <script>
-              const options = [
-                "Chicken",
-                "Beef",
-                "Pork",
-                "Fish",
-                "Turkey",
-                "Vegetarian",
-              ];
-              const filterCard = document.querySelector(".filter-card");
-              options.forEach((option) => {
-                const label = document.createElement("label");
-                label.className = "filter-option";
-                label.innerHTML = `
-                    <input type="checkbox" name="filter" value="${option}">
-                    <span class="checkmark"></span>
-                    ${option}
-                  `;
-                filterCard.appendChild(label);
-              });
-              document.getElementById("clear-filters").onclick = function () {
-                document
-                  .querySelectorAll('.filter-option input[type="checkbox"]')
-                  .forEach((cb) => (cb.checked = false));
-              };
-            </script>
           </div>
           <button class="clear-filters-button" type="button">Clear All</button>
         </div>
@@ -153,5 +127,6 @@
     <footer>
       <p class="footer-text">© 2025 Shannon Jaya</p>
     </footer>
+    <script src="scripts/main.js"></script>
   </body>
 </html>
