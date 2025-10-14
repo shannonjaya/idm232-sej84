@@ -1,4 +1,5 @@
 // Filter 
+
 const options = [
   "Chicken",
   "Beef",
@@ -24,7 +25,7 @@ window.addEventListener("DOMContentLoaded", function () {
   }
 
   // Clear filters 
-  const clearBtn = document.querySelector(".clear-filters-button");
+  const clearBtn = document.querySelector(".clear-filters-btn");
   if (clearBtn) {
     clearBtn.onclick = function () {
       document
