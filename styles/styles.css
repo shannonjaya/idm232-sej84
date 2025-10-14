@@ -86,9 +86,7 @@ main {
   display: flex;
   flex-direction: row;
   padding: calc(var(--rhythm) * 3);
-  margin-bottom: calc(var(--rhythm) * 10);
   gap: calc(var(--rhythm) * 3);
-
 }
 
 header {
@@ -197,21 +195,15 @@ header {
 /* Search Bar Styles */
 
 .search-bar {
-  position: sticky;
-  top: 2rem;
-  align-self: flex-start;
-  z-index: 2;
   top: 0;
   display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  justify-content: space-between;
   width: 100%;
   border-bottom: 1px solid var(--primary-color);
   margin-bottom: calc(var(--rhythm) * 2);
 }
 
 .search-bar input[type="text"] {
-  flex: 1;
   font-family: var(--font-sans);
   font-size: 1rem;
   font-weight: 200;
@@ -235,7 +227,7 @@ header {
 .search-filter-container,
 .table-of-contents-container {
   position: sticky;
-  top: 2rem;
+  top: 4rem;
   align-self: flex-start;
   z-index: 2;
   width: auto;
@@ -318,7 +310,6 @@ footer {
   flex-direction: row;
   width: 100%;
   gap: calc(var(--rhythm) * 3);
-  /* margin-bottom: calc(var(--rhythm) * 10); */
 }
 
 .text-column {
@@ -327,7 +318,7 @@ footer {
   width: 50%;
   padding-right: calc(var(--rhythm) * 2);
   border-right: 1px solid var(--light-gray);
-  padding: calc(var(--rhythm) * 3) 0;
+  padding-bottom: calc(var(--rhythm) * 5);
 }
 
 .image-column {
@@ -335,7 +326,7 @@ footer {
   justify-content: center;
   align-items: center;
   width: 50%;
-  padding: calc(var(--rhythm) * 3) 0;
+  padding-bottom: calc(var(--rhythm) * 5);
 }
 
 .image-column > img {
@@ -348,11 +339,17 @@ footer {
   display: flex;
   flex-direction: column;
   gap: var(--rhythm);
-  padding: calc(var(--rhythm) * 2);
 }
 
 .table-of-contents-card h3 {
   color: var(--primary-color);
+}
+
+.recipe-details {
+  display: flex;
+  flex-direction: row;
+  gap: calc(var(--rhythm) * 2);
+  color: var(--gray);
 }
 
 /* Responsive Styles */
