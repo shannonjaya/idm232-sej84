@@ -1,13 +1,3 @@
-body {
-  font-family: "Readex Pro", Arial, Helvetica, sans-serif;
-}
-@font-face {
-  font-family: "Cowboy Cadaver";
-  src: url("../fonts/CowboyCadaver-Regular.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
-
 @import url("https://fonts.googleapis.com/css2?family=Readex+Pro:wght@160..700&display=swap");
 
 :root {
@@ -39,6 +29,10 @@ body {
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 h1,
 h2,
 h3,
@@ -51,9 +45,19 @@ h6 {
 }
 
 h1 {
-  font-size: 3rem;
+  font-size: 5rem;
+  font-family: "Instrument Serif", serif;
+  font-weight: 400;
   color: var(--primary-color);
-  line-height: 3rem;
+  text-transform: none;
+  line-height: 5rem;
+  margin: 0 0 1rem 0;
+}
+
+h2 {
+  font-size: 2rem;
+  color: var(--primary-color);
+  line-height: 2rem;
   margin: 0 0 1rem 0;
 }
 
@@ -63,7 +67,7 @@ h3 {
 }
 
 h4 {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   text-transform: none;
   font-weight: 200;
 }
@@ -85,23 +89,24 @@ ul {
 main {
   display: flex;
   flex-direction: row;
-  padding: calc(var(--rhythm) * 3);
+  margin: calc(var(--rhythm) * 3);
   gap: calc(var(--rhythm) * 3);
 }
 
 header {
   display: flex;
   justify-content: center;
-  padding: var(--rhythm);
+  padding: calc(var(--rhythm) * 0.5);
+  border-bottom: 1px solid var(--light-gray);
 }
 
 .logo {
+  width: 48px;
   transition: ease 0.15s;
 }
 
 .logo:hover {
-  scale: 1.05;
-  transition: ease 0.15s;
+  opacity: 0.5;
 }
 
 .hero {
@@ -146,6 +151,11 @@ header {
   cursor: pointer;
   width: 100%;
   font-family: var(--font-sans);
+  transition: transform 0.2s;
+}
+
+.recipe-card:hover {
+  transform: scale(1.02);
 }
 
 .recipe-image {
@@ -224,8 +234,7 @@ header {
 }
 
 /* Filter Styles */
-.search-filter-container,
-.table-of-contents-container {
+.search-filter-container {
   position: sticky;
   top: 4rem;
   align-self: flex-start;
@@ -271,15 +280,22 @@ header {
   width: 20px;
   height: 20px;
   border: 1px solid var(--background-color);
-  border-radius: 0;
+  border-radius: 100%;
   background: transparent;
   position: relative;
   vertical-align: middle;
   margin-right: 8px;
+  transition: transform 0.12s ease;
 }
 
 .filter-option input[type="checkbox"]:checked ~ .checkmark {
   background: var(--background-color);
+  border-color: var(--primary-color);
+}
+
+.filter-option .checkmark:hover,
+.filter-option:hover .checkmark {
+  transform: scale(1.1);
 }
 
 .clear-filters-btn {
@@ -306,11 +322,40 @@ footer {
 
 /* Recipe Page Styles */
 
+.recipe-page-main {
+  display: grid;
+  grid-template-columns: 1fr 240px;
+  gap: 0;
+  align-items: end;
+  margin: 0 0 calc(var(--rhythm) * 5) calc(var(--rhythm) * 10);
+  align-items: start;
+}
+
+.recipe-header,
+.recipe-container {
+  width: 100%;
+  grid-column: 1;
+}
+
+.table-of-contents-container {
+  grid-column: 2;
+}
+
+.recipe-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-bottom: 1px solid var(--light-gray);
+  padding: calc(var(--rhythm) * 2) 0;
+}
+
 .text-image-container {
   display: flex;
   flex-direction: row;
   width: 100%;
   gap: calc(var(--rhythm) * 3);
+  border-bottom: 1px solid var(--light-gray);
+  padding: calc(var(--rhythm) * 5) 0;
 }
 
 .text-column {
@@ -318,8 +363,6 @@ footer {
   flex-direction: column;
   width: 50%;
   padding-right: calc(var(--rhythm) * 2);
-  border-right: 1px solid var(--light-gray);
-  padding-bottom: calc(var(--rhythm) * 5);
 }
 
 .text-column .title {
@@ -331,7 +374,6 @@ footer {
   justify-content: center;
   align-items: center;
   width: 50%;
-  padding-bottom: calc(var(--rhythm) * 5);
 }
 
 .image-column > img {
@@ -339,11 +381,35 @@ footer {
   height: auto;
 }
 
+.table-of-contents-container {
+  align-self: flex-start;
+  margin-left: auto;
+  position: sticky;
+  top: calc(var(--rhythm) * 5);
+  z-index: 10;
+  width: 200px;
+  height: fit-content;
+  padding-left: calc(var(--rhythm) * 2);
+}
+
 .table-of-contents-card {
   color: var(--foreground-color);
   display: flex;
   flex-direction: column;
   gap: var(--rhythm);
+}
+
+.content-btn {
+  all: unset;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-weight: 200;
+  color: var(--gray);
+  font-size: 0.875rem;
+}
+
+.content-btn:hover {
+  color: var(--primary-color);
 }
 
 .table-of-contents-card h3 {
@@ -358,6 +424,11 @@ footer {
 }
 
 /* Responsive Styles */
+@media (max-width: 1200px) {
+  .recipe-page-main {
+    margin: 0 0 0 calc(var(--rhythm) * 3);
+  }
+}
 
 @media (max-width: 900px) {
   body.filter-overlay-open::before {
@@ -372,8 +443,21 @@ footer {
 
   main {
     flex-direction: column;
-    padding: var(--rhythm);
+    margin: var(--rhythm);
     gap: calc(var(--rhythm) * 2);
+  }
+
+  h1 {
+    font-size: 3.5rem;
+    line-height: 3.5rem;
+  }
+
+  .recipe-page-main {
+    display: flex;
+    flex-direction: column;
+    margin: var(--rhythm);
+    align-items: center;
+    gap: 0;
   }
 
   .search-filter-container {
@@ -453,19 +537,14 @@ footer {
     display: none;
   }
 
-  .recipe-container {
-    gap: calc(var(--rhythm) * 5);
-  }
-
   .text-image-container {
     flex-direction: column;
+    padding: calc(var(--rhythm) * 3) 0;
   }
 
   .text-column {
-    border-right: none;
-    border-bottom: 1px solid var(--light-gray);
     width: 100%;
-    padding: 0 0 calc(var(--rhythm) * 2) 0;
+    padding: 0;
   }
 
   .image-column {
@@ -477,7 +556,7 @@ footer {
 @media (max-width: 600px) {
   main {
     flex-direction: column;
-    padding: var(--rhythm);
+    margin: var(--rhythm);
   }
 
   .recipe-card {
@@ -501,11 +580,14 @@ footer {
 }
 
 @media (max-width: 400px) {
-  .recipe-title, .recipe-subtitle, .recipe-time, .recipe-servings {
+  .recipe-title,
+  .recipe-subtitle,
+  .recipe-time,
+  .recipe-calories .recipe-servings {
     font-size: 0.875rem;
     line-height: 1.125rem;
   }
-   .time-icon {
+  .time-icon {
     width: 16px;
     height: 16px;
   }
@@ -516,10 +598,12 @@ footer {
 
   .recipe-info {
     flex-wrap: wrap;
-    gap: calc(var(--rhythm)*0.1) calc(var(--rhythm) * 0.5);
+    gap: calc(var(--rhythm) * 0.1) calc(var(--rhythm) * 0.5);
   }
 
-  .recipe-time, .recipe-servings {
+  .recipe-time,
+  .recipe-calories,
+  .recipe-servings {
     text-wrap: nowrap;
   }
 
@@ -529,6 +613,6 @@ footer {
   }
 
   .filter-title {
-    text-align: left
-  };
+    text-align: left;
+  }
 }

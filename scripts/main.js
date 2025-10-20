@@ -70,6 +70,23 @@ function initialize() {
   renderFilterOptions();
   clearFilters();
   cloneRecipeCards();
+  scrollToSection();
+}
+
+// Prevent link from adding to url
+function scrollToSection() {
+  const contentBtns = document.querySelectorAll('.content-btn[data-target]');
+  if (!contentBtns || contentBtns.length === 0) return;
+
+  contentBtns.forEach((btn) => {
+    btn.addEventListener('click', (event) => {
+      const id = btn.getAttribute('data-target');
+      const target = document.getElementById(id);
+      if (!target) return;
+
+      target.scrollIntoView();
+    });
+  });
 }
 
 window.addEventListener('DOMContentLoaded', initialize);
