@@ -73,7 +73,7 @@ function initialize() {
   scrollToSection();
 }
 
-// Prevent link from adding to url
+// Scroll to section functionality
 function scrollToSection() {
   const contentBtns = document.querySelectorAll('.content-btn[data-target]');
   if (!contentBtns || contentBtns.length === 0) return;
