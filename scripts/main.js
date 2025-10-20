@@ -1,6 +1,4 @@
-// Filter 
-
-const options = [
+const filterOptions = [
   "Chicken",
   "Beef",
   "Pork",
@@ -9,10 +7,11 @@ const options = [
   "Vegetarian",
 ];
 
-window.addEventListener("DOMContentLoaded", function () {
+// Add filters
+function renderFilterOptions() {
   const filterCard = document.querySelector(".filter-card .filter-options");
   if (filterCard) {
-    options.forEach((option) => {
+    filterOptions.forEach((option) => {
       const label = document.createElement("label");
       label.className = "filter-option";
       label.innerHTML = `
@@ -23,8 +22,10 @@ window.addEventListener("DOMContentLoaded", function () {
       filterCard.appendChild(label);
     });
   }
+}
 
-  // Clear filters 
+// Clear filters
+function clearFilters() {
   const clearBtn = document.querySelector(".clear-filters-btn");
   if (clearBtn) {
     clearBtn.onclick = function () {
@@ -33,8 +34,29 @@ window.addEventListener("DOMContentLoaded", function () {
         .forEach((cb) => (cb.checked = false));
     };
   }
+}
 
-  // Recipe card mockup
+// Mobile filter card
+const filterBtn = document.querySelector(".mobile-filter-btn");
+const filterCard = document.querySelector(".filter-card");
+const closeFiltersBtn = document.querySelector(".close-filters-btn");
+
+if (filterBtn) {
+  filterBtn.addEventListener("click", () => {
+    filterCard.classList.add("active");
+    document.body.classList.add('filter-overlay-open');
+  });
+}
+
+if (closeFiltersBtn) {
+  closeFiltersBtn.addEventListener("click", () => {
+    filterCard.classList.remove("active");
+    document.body.classList.remove('filter-overlay-open');
+  });
+}
+
+// Recipe card mockup
+function cloneRecipeCards() {
   const card = document.querySelector(".recipe-card");
   const container = document.querySelector(".recipe-cards");
   if (card && container) {
@@ -42,4 +64,12 @@ window.addEventListener("DOMContentLoaded", function () {
       container.appendChild(card.cloneNode(true));
     }
   }
-});
+}
+
+function initialize() {
+  renderFilterOptions();
+  clearFilters();
+  cloneRecipeCards();
+}
+
+window.addEventListener('DOMContentLoaded', initialize);
