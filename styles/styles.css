@@ -78,6 +78,7 @@ p {
 
 a {
   text-decoration: none;
+  cursor: pointer;
   color: inherit;
   font-weight: 200;
 }
@@ -97,7 +98,6 @@ header {
   display: flex;
   justify-content: center;
   padding: calc(var(--rhythm) * 0.5);
-  border-bottom: 1px solid var(--light-gray);
 }
 
 .logo {
@@ -316,7 +316,18 @@ header {
   display: none;
 }
 
+.no-results-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: auto;
+  max-width: 600px;
+}
+
 footer {
+  margin-top: calc(var(--rhythm) * 5);
   text-align: center;
 }
 
@@ -344,9 +355,11 @@ footer {
 .recipe-header {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 0;
   border-bottom: 1px solid var(--light-gray);
   padding: calc(var(--rhythm) * 2) 0;
+  margin-top: calc(var(--rhythm) * 2);
 }
 
 .text-image-container {
