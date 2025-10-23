@@ -160,8 +160,8 @@ header {
 
 .recipe-card {
   all: unset;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: auto 1fr;
   cursor: pointer;
   width: 100%;
   font-family: var(--font-sans);
@@ -633,14 +633,15 @@ footer {
 
   .recipe-card {
     width: 100%;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     border-top: 1px solid var(--light-gray);
     padding: var(--rhythm) 0;
     gap: var(--rhythm);
   }
 
   .recipe-image {
-    width: 40%;
+    width: 100%;
     height: fit-content;
     margin-bottom: 0;
   }
