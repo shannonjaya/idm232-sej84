@@ -486,6 +486,7 @@ footer {
 
   .help-page-main {
     margin: 0 calc(var(--rhythm) * 3);
+    gap: calc(var(--rhythm) * 3);
   }
 
   .text-section {
