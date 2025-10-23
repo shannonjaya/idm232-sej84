@@ -598,6 +598,7 @@ footer {
 
   .filter-option input[type="checkbox"]:checked ~ .checkmark {
     background: var(--foreground-color);
+    border-color: var(--foreground-color);
   }
 
   .table-of-contents-card {
