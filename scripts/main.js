@@ -1,3 +1,15 @@
+// Recipe card mockup
+function cloneRecipeCards() {
+  const recipeCard = document.querySelector(".recipe-card");
+  const recipeContainer = document.querySelector(".recipe-cards-container");
+  if (recipeCard && recipeContainer) {
+    for (let i = 0; i < 10; i++) {
+      const clone = recipeCard.cloneNode(true);
+      recipeContainer.appendChild(clone);
+    }
+  }
+}
+
 const filterOptions = [
   "Chicken",
   "Beef",
@@ -7,19 +19,21 @@ const filterOptions = [
   "Vegetarian",
 ];
 
-// Add filters
+// Add filters to filter card
 function renderFilterOptions() {
-  const filterCard = document.querySelector(".filter-card .filter-options");
-  if (filterCard) {
+  const filterContainer = document.querySelector(
+    ".filter-overlay .filter-options"
+  );
+  if (filterContainer) {
     filterOptions.forEach((option) => {
       const label = document.createElement("label");
       label.className = "filter-option";
       label.innerHTML = `
         <input type="checkbox" name="filter" value="${option}">
         <span class="checkmark"></span>
-        ${option}
+        <span class="option-label">${option}</span>
       `;
-      filterCard.appendChild(label);
+      filterContainer.appendChild(label);
     });
   }
 }
@@ -28,42 +42,47 @@ function renderFilterOptions() {
 function clearFilters() {
   const clearBtn = document.querySelector(".clear-filters-btn");
   if (clearBtn) {
-    clearBtn.onclick = function () {
+    clearBtn.addEventListener("click", () => {
       document
         .querySelectorAll('.filter-option input[type="checkbox"]')
         .forEach((cb) => (cb.checked = false));
-    };
+    });
   }
 }
 
-// Mobile filter card
+// Mobile filter overlay
 const filterBtn = document.querySelector(".mobile-filter-btn");
-const filterCard = document.querySelector(".filter-card");
+const filterOverlay = document.querySelector(".filter-overlay");
 const closeFiltersBtn = document.querySelector(".close-filters-btn");
 
 if (filterBtn) {
   filterBtn.addEventListener("click", () => {
-    filterCard.classList.add("active");
-    document.body.classList.add('filter-overlay-open');
+    filterOverlay.classList.add("active");
+    document.body.classList.add("filter-overlay-open");
   });
 }
 
 if (closeFiltersBtn) {
   closeFiltersBtn.addEventListener("click", () => {
-    filterCard.classList.remove("active");
-    document.body.classList.remove('filter-overlay-open');
+    filterOverlay.classList.remove("active");
+    document.body.classList.remove("filter-overlay-open");
   });
 }
 
-// Recipe card mockup
-function cloneRecipeCards() {
-  const card = document.querySelector(".recipe-card");
-  const container = document.querySelector(".recipe-cards");
-  if (card && container) {
-    for (let i = 0; i < 10; i++) {
-      container.appendChild(card.cloneNode(true));
-    }
-  }
+// Scroll to section functionality
+function scrollToSection() {
+  const contentBtns = document.querySelectorAll(".content-btn[data-target]");
+  if (!contentBtns || contentBtns.length === 0) return;
+
+  contentBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const id = btn.getAttribute("data-target");
+      const target = document.getElementById(id);
+      if (target) {
+        target.scrollIntoView();
+      }
+    });
+  });
 }
 
 function initialize() {
@@ -73,20 +92,4 @@ function initialize() {
   scrollToSection();
 }
 
-// Scroll to section functionality
-function scrollToSection() {
-  const contentBtns = document.querySelectorAll('.content-btn[data-target]');
-  if (!contentBtns || contentBtns.length === 0) return;
-
-  contentBtns.forEach((btn) => {
-    btn.addEventListener('click', (event) => {
-      const id = btn.getAttribute('data-target');
-      const target = document.getElementById(id);
-      if (!target) return;
-
-      target.scrollIntoView();
-    });
-  });
-}
-
-window.addEventListener('DOMContentLoaded', initialize);
+window.addEventListener("DOMContentLoaded", initialize);
