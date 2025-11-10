@@ -12,17 +12,34 @@
     >
   </head>
   <body>
-    <?php require_once "db.php"; 
 
+    <!-- DB Connection -->
+    <?php require_once "db.php"; ?>
+
+    <!-- Search/Filter Logic -->
+    <?php
     $search_query = isset($_GET['search']) ? $_GET['search'] : '';
     $filters = isset($_GET['filter']) ? $_GET['filter'] : [];
 
-    $sql_query = "SELECT * FROM idm232_sej84";
-    $results = mysqli_query($connection, $sql_query);
+    $sql_query = "SELECT * FROM idm232_sej84 WHERE 1";
 
-    
+    if ($search_query) {
+      $search_safe = mysqli_real_escape_string($connection, $search_query);
+      $sql_query .= " AND (title LIKE '%$search_safe%' OR subtitle LIKE '%$search_safe%')";
+    }
+
+    if (!empty($filters)) {
+      $filter_safe = array_map(function($f) use ($connection) {
+        return mysqli_real_escape_string($connection, $f);
+      }, $filters);
+      $filter_list = "'" . implode("','", $filter_safe) . "'";
+      $sql_query .= " AND protein IN ($filter_list)";
+    }
+
+    $results = mysqli_query($connection, $sql_query);
     ?>
 
+    <!-- Header -->
     <?php include "header.php"; ?>
 
     <div class="hero">
@@ -31,13 +48,16 @@
 
     <main>
       <div class="search-filter-container">
+
+        <!-- Search Form -->
         <form action="index.php" method="get" class="search-bar">
           <input
             type="text"
             placeholder="Find your next meal..."
             name="search"
+            value="<?php echo htmlspecialchars($search_query); ?>"
           >
-          <button type="submit" disabled aria-label="Search">
+          <button type="submit" enabled aria-label="Search">
             <svg
               width="36"
               height="36"
@@ -93,25 +113,12 @@
           </svg>
           FILTER
         </button>
+
+        <!-- Filter Form -->
         <form action="index.php" method="get" class="filter-form">
           <h3 class="filter-title">Filter By</h3>
           <div class="filter-options">
-            <?php
-            $filterOptions = [
-              "Chicken",
-              "Beef",
-              "Pork",
-              "Fish",
-              "Turkey",
-              "Vegetarian"
-            ];
-            foreach ($filterOptions as $option) : ?>
-              <label class="filter-option">
-                <input type="checkbox" name="filter[]" value="<?php echo htmlspecialchars($option); ?>">
-                <span class="checkmark"></span>
-                <span class="option-label"><?php echo htmlspecialchars($option); ?></span>
-              </label>
-            <?php endforeach; ?>
+            <?php include "filter-options.php"; ?>
           </div>
           <button class="clear-filters-btn" type="button">Clear All</button>
           <div class="close-filters-btn">
@@ -143,6 +150,7 @@
         </form>
       </div>
 
+      <!-- Recipe Cards -->
       <div class="recipe-container">
         <div class="recipe-cards-container">
           <?php 
@@ -159,7 +167,11 @@
       </div>
     </main>
 
-    <?php include "footer.php";
+    <!-- Footer -->
+    <?php include "footer.php";?>
+    
+    <!-- Close Connection -->
+    <?php
     mysqli_close($connection); 
     ?>
     

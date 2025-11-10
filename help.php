@@ -23,13 +23,13 @@
           <div class="text-section">
               <h2>Search Recipes</h2>
                 <p>
-                  Use the search bar on the homepage to find recipes by ingredient, cuisine, or dietary preference. Just type in what you're craving and hit search!
+                  Use the search bar on the homepage to find recipes. Just type in what you're craving and hit enter!
                 </p>
           </div>
             <div class="text-section">
                 <h2>Filter Options</h2>
                 <p>
-                  Utilize the filter options to narrow down your search results. You can filter by meal type, cooking time, dietary restrictions, and more to find the perfect recipe for you.
+                  Utilize the filter options to narrow down your search results. You can filter by protein to find the perfect recipe for you.
                 </p>
             </div>
             <div class="text-section">

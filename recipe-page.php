@@ -12,18 +12,30 @@
     >
   </head>
   <body>
-
+    <!-- DB Connection and Data Fetch -->
     <?php
       require_once "db.php";
 
-      // Get the recipe ID from the URL
-      $recipe_id = $_GET['id'];
+      $recipe_id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 
-      // Fetch the recipe details from the database
-      $stmt = $pdo->prepare("SELECT * FROM recipes WHERE id = :id");
-      $stmt->execute(['id' => $recipe_id]);
-      $recipe = $stmt->fetch(PDO::FETCH_ASSOC); ?>
+      if ($recipe_id > 0) {
+        $sql_query = "SELECT * FROM `idm232_sej84` WHERE id = $recipe_id";
+        $result = mysqli_query($connection, $sql_query);
 
+        if ($result && mysqli_num_rows($result) > 0) {
+          $recipe = mysqli_fetch_assoc($result);
+        } else {
+  
+          echo "Recipe not found.";
+          exit;
+        }
+      } else {
+        echo "Invalid recipe ID.";
+        exit;
+      }
+      ?>
+
+    <!-- Header -->
     <?php include("header.php") ?>
 
     <main class="recipe-page-main">
@@ -62,7 +74,7 @@
                 />
               </g>
             </svg>
-            <?php echo $recipe['time']; ?> min
+            <?php echo $recipe['cook_time']; ?> min
           </span>
           <div class="divider"></div>
           <span class="recipe-servings"><?php echo $recipe['servings']; ?> servings</span>
@@ -71,202 +83,104 @@
         </div>
       </div>
       <div class="recipe-container">
+        <!-- Description -->
         <div class="text-image-container" id="overview">
           <div class="text-column">
             <h2 class="title">Overview</h2>
             <p class="description">
-              Weʼre amping up chicken breasts with a glaze of smoky ancho chile
-              paste and fresh orange juice in this recipe. On the side, roasted
-              carrots and lightly creamy, golden raisin-studded rice perfectly
-              accent the sweetness of the glaze.
+              <?php echo $recipe['description']; ?>
             </p>
           </div>
           <div class="image-column">
             <img
               class="recipe-image-large"
-              src="assets/recipe-images/Recipe_Ancho-Orange_Chicken_with_Kale_Rice_Roasted_Carrots/0101_FPP_Chicken-Rice_97338_WEB_SQ_hi_res.avif"
+              src="<?php echo 'assets/recipe-images/' . $recipe['id'] . '/' . $recipe['main_image']; ?>"
               alt="Plated Ancho-Orange Chicken with kale rice and roasted carrots"
             >
           </div>
         </div>
+
+        <!-- Ingredients -->
         <div class="text-image-container" id="ingredients">
           <div class="text-column">
             <h2 class="title">Ingredients</h2>
             <ul class="ingredients-list">
-              <li>4 Boneless, Skinless Chicken Breasts</li>
-              <li>1 Tbsp Ancho Chile Paste</li>
-              <li>2 Tbsps Crème Fraîche</li>
-              <li>3 Tbsps Golden Raisins</li>
-              <li>1 Lime</li>
-              <li>2 Tbsps Butter</li>
-              <li>2 Cloves Garlic</li>
-              <li>3/4 Jasmine Rice</li>
-              <li>4 Carrots</li>
-              <li>1 Bunch Kale</li>
+              <?php
+              // Ingredient List
+              for ($i = 1; $i <= 20; $i++) {
+                $key = 'ingredient_' . $i;
+                if (!empty($recipe[$key])) {
+                  echo '<li>' . htmlspecialchars($recipe[$key]) . '</li>';
+                }
+              }
+              ?>
             </ul>
           </div>
           <div class="image-column">
               <img
                 class="recipe-image-large"
-                src="assets/recipe-images/Recipe_Ancho-Orange_Chicken_with_Kale_Rice_Roasted_Carrots/0101_ING_FPP_large_feature.avif"
+                src="<?php echo 'assets/recipe-images/' . $recipe['id'] . '/' . $recipe['ingredients_image']; ?>"
                 alt="Ingredients for Ancho-Orange Chicken"
               >
           </div>
         </div>
-        <div class="text-image-container" id="step-1">
-          <div class="text-column">
-            <h2 class="title">Step 1</h2>
-            <p class="description">
-              Place an oven rack in the center of the oven, then preheat to
-              450°F. In a medium pot, combine the
-              <strong>rice, a big pinch of salt,</strong> and
-              <strong>1 1/2 cups of water.</strong> Heat to boiling on high.
-              Once boiling, cover and reduce the heat to low. Cook 12 to 14
-              minutes, or until the water has been absorbed and the rice is
-              tender. Turn off the heat and fluff with a fork. Cover to keep
-              warm.
-            </p>
-          </div>
-          <div class="image-column">
-              <img
-                class="recipe-image-large"
-                src="assets/recipe-images/Recipe_Ancho-Orange_Chicken_with_Kale_Rice_Roasted_Carrots/0101_FPP_Chicken-Rice_18594_WEB_high_feature.jpg"
-                alt="Rice cooking in a pot alongside other ingredients"
-              >
-          </div>
-        </div>
-        <div class="text-image-container" id="step-2">
-          <div class="text-column">
-            <h2 class="title">Step 2</h2>
-            <p class="description">
-              While the rice cooks, wash and dry the fresh produce. Peel the
-              <strong>carrots;</strong> quarter lengthwise, then halve
-              crosswise. Peel and roughly chop the
-              <strong>garlic.</strong> Remove and discard the stems of the
-              <strong>kale;</strong> finely chop the leaves. Using a peeler,
-              remove the <strong>lime</strong> rind, avoiding the white pith;
-              mince to get 2 teaspoons of zest (or use a zester). Halve the lime
-              crosswise. Halve the <strong>orange;</strong> squeeze the juice
-              into a bowl, straining out any seeds. Whisk in the
-              <strong>chile paste</strong> and
-              <strong>2 tablespoons of water</strong> until smooth.
-            </p>
-          </div>
-          <div class="image-column">
-              <img
-                class="recipe-image-large"
-                src="assets/recipe-images/Recipe_Ancho-Orange_Chicken_with_Kale_Rice_Roasted_Carrots/0101_FPP_Chicken-Rice_18622_WEB_high_feature.jpg"
-                alt="Chopped produce and zest being prepared"
-              >
-          </div>
-        </div>
-        <div class="text-image-container" id="step-3">
-          <div class="text-column">
-            <h2 class="title">Step 3</h2>
-            <p class="description">
-              Place the <strong>sliced carrots</strong> on a sheet pan. Drizzle
-              with olive oil and season with salt and pepper; toss to coat.
-              Arrange in an even layer. Roast 15 to 17 minutes, or until tender
-              when pierced with a fork. Remove from the oven.
-            </p>
-          </div>
-          <div class="image-column">
-              <img
-                class="recipe-image-large"
-                src="assets/recipe-images/Recipe_Ancho-Orange_Chicken_with_Kale_Rice_Roasted_Carrots/0101_FPP_Chicken-Rice_18626_WEB_high_feature.jpg"
-                alt="Roasted carrots on a sheet pan"
-              >
-          </div>
-        </div>
-        <div class="text-image-container" id="step-4">
-          <div class="text-column">
-            <h2 class="title">Step 4</h2>
-            <p class="description">
-              While the carrots roast, in a large pan (nonstick, if you have
-              one), heat 2 teaspoons of olive oil on medium-high until hot. Add
-              the <strong>chopped garlic</strong> and cook, stirring constantly,
-              30 seconds to 1 minute, or until fragrant. Add the
-              <strong>chopped kale;</strong> season with salt and pepper. Cook,
-              stirring occasionally, 3 to 4 minutes, or until slightly wilted.
-              Add <strong>1/3 cup of water;</strong> season with salt and
-              pepper. Cook, stirring occasionally, 3 to 4 minutes, or until the
-              kale has wilted and the water has cooked off. Transfer to the pot
-              of <strong>cooked rice.</strong> Stir to combine; season with salt
-              and pepper to taste. Cover to keep warm. Wipe out the pan.
-            </p>
-          </div>
-          <div class="image-column">
-              <img
-                class="recipe-image-large"
-                src="assets/recipe-images/Recipe_Ancho-Orange_Chicken_with_Kale_Rice_Roasted_Carrots/0101_FPP_Chicken-Rice_18609_WEB_high_feature.jpg"
-                alt="Sliced chicken cooking in a pan"
-              >
-          </div>
-        </div>
-        <div class="text-image-container" id="step-5">
-          <div class="text-column">
-            <h2 class="title">Step 5</h2>
-            <p class="description">
-              While the carrots continue to roast, pat the
-              <strong>chicken</strong> dry with paper towels; season with salt
-              and pepper on both sides. In the same pan, heat 2 teaspoons of
-              olive oil on medium-high until hot. Add the seasoned chicken and
-              cook 4 to 6 minutes on the first side, or until browned. Flip and
-              cook 2 to 3 minutes, or until lightly browned. Add the
-              <strong>glaze</strong> and cook, frequently spooning the glaze
-              over the chicken, 2 to 3 minutes, or until the chicken is coated
-              and cooked through. Turn off the heat; stir the
-              <strong>butter</strong> and
-              <strong>the juice of 1 lime half</strong> into the glaze until the
-              butter has melted. Season with salt and pepper to taste.
-            </p>
-          </div>
-          <div class="image-column">
-              <img
-                class="recipe-image-large"
-                src="assets/recipe-images/Recipe_Ancho-Orange_Chicken_with_Kale_Rice_Roasted_Carrots/0101_FPP_Chicken-Rice_18639_WEB_high_feature.jpg"
-                alt="Finished glazed chicken being plated"
-              >
-          </div>
-        </div>
-        <div class="text-image-container" id="step-6">
-          <div class="text-column">
-            <h2 class="title">Step 6</h2>
-            <p class="description">
-              To the pot of <strong>cooked rice and kale,</strong> add the
-              <strong>lime zest, crème fraîche, raisins,</strong> and
-              <strong>the juice of the remaining lime half.</strong> Stir to
-              combine; season with salt and pepper to taste. Serve the
-              <strong>glazed chicken</strong> with the finished rice and
-              <strong>roasted carrots.</strong> Top the chicken with the
-              remaining glaze from the pan. Enjoy!
-            </p>
-          </div>
-          <div class="image-column">
-            <img
-              class="recipe-image-large"
-              src="assets/end-image.png"
-              alt="Closing image"
-            >
-          </div>
-        </div>
+        
+        <!-- Steps -->
+        <?php 
+        $step_images = isset($recipe['steps_images']) ? explode('*', $recipe['steps_images']) : [];
+        $max_steps = max(count($step_images), 20); // Support up to 20 steps
+        for ($i = 1; $i <= $max_steps; $i++) {
+          $title = isset($recipe['step_title_' . $i]) ? trim($recipe['step_title_' . $i]) : '';
+          $desc = isset($recipe['step_desc_' . $i]) ? trim($recipe['step_desc_' . $i]) : '';
+          $img = isset($step_images[$i-1]) ? trim($step_images[$i-1]) : '';
+          // Only show if there is a title, description, or image
+          if ($title || $desc || $img) {
+            echo '<div class="text-image-container" id="step-' . $i . '">';
+            echo '<div class="text-column">';
+            echo '<h2 class="title">' . ($title ? htmlspecialchars($title) : 'Step ' . $i) . '</h2>';
+            echo '<p class="description">' . $desc . '</p>';
+            echo '</div>';
+            echo '<div class="image-column">';
+            if ($img) {
+              echo '<img class="recipe-image-large" src="assets/recipe-images/' . $recipe['id'] . '/' . htmlspecialchars($img) . '" alt="Step ' . $i . ' image">';
+            } elseif ($i == $max_steps) {
+              echo '<img class="recipe-image-large" src="assets/end-image.png" alt="End image">';
+            }
+            echo '</div>';
+            echo '</div>';
+          }
+        }
+        ?>
       </div>
+
+      <!-- Table of Contents -->
       <div class="table-of-contents-container">
         <div class="table-of-contents-card">
           <h3>Contents</h3>
           <button type="button" class="content-btn" data-target="overview">Overview</button>
           <button type="button" class="content-btn" data-target="ingredients">Ingredients</button>
-          <button type="button" class="content-btn" data-target="step-1">Step 1</button>
-          <button type="button" class="content-btn" data-target="step-2">Step 2</button>
-          <button type="button" class="content-btn" data-target="step-3">Step 3</button>
-          <button type="button" class="content-btn" data-target="step-4">Step 4</button>
-          <button type="button" class="content-btn" data-target="step-5">Step 5</button>
-          <button type="button" class="content-btn" data-target="step-6">Step 6</button>
+          <?php
+          // Show only what exists
+          for ($i = 1; $i <= $max_steps; $i++) {
+            $title = isset($recipe['step_title_' . $i]) ? trim($recipe['step_title_' . $i]) : '';
+            $desc = isset($recipe['step_desc_' . $i]) ? trim($recipe['step_desc_' . $i]) : '';
+            $img = isset($step_images[$i-1]) ? trim($step_images[$i-1]) : '';
+            if ($title || $desc || $img) {
+              echo '<button type="button" class="content-btn" data-target="step-' . $i . '">Step ' . $i . '</button>';
+            }
+          }
+          ?>
         </div>
       </div>
     </main>
-
+    
+    <!-- Footer -->
     <?php include("footer.php") ?>
+    
+    <!-- Close Connection -->
+    <?php
+    mysqli_close($connection); 
+    ?>
     
     <script src="scripts/main.js"></script>
   </body>

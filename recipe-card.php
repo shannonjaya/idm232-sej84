@@ -1,4 +1,4 @@
-<a href="recipe-template.php?id=<?php echo $recipe['id']; ?>" class="recipe-card">
+<a href="recipe-page.php?id=<?php echo $recipe['id']; ?>" class="recipe-card">
   <img
     class="recipe-image"
     src="<?php echo 'assets/recipe-images/' . $recipe['id'] . '/' . $recipe['main_image']; ?>"

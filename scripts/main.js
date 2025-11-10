@@ -1,3 +1,11 @@
+// Auto-submit filter form
+document.querySelectorAll('.filter-form input[type="checkbox"]').forEach(function(checkbox) {
+  checkbox.addEventListener('change', function() {
+    var form = checkbox.closest('form');
+    if (form) form.submit();
+  });
+});
+
 // Clear filters
 function clearFilters() {
   const clearBtn = document.querySelector(".clear-filters-btn");
@@ -6,6 +14,9 @@ function clearFilters() {
       document
         .querySelectorAll('.filter-option input[type="checkbox"]')
         .forEach((cb) => (cb.checked = false));
+
+      const form = clearBtn.closest('form');
+      if (form) form.submit();
     });
   }
 }
@@ -44,6 +55,7 @@ function scrollToSection() {
     });
   });
 }
+
 
 function initialize() {
   clearFilters();
