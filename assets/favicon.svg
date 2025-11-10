@@ -1,52 +1,6 @@
-<svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g filter="url(#filter0_g_326_1266)">
-<ellipse cx="8.5" cy="8.85032" rx="8" ry="7.64963" fill="#EA373D"/>
-</g>
-<g filter="url(#filter1_g_326_1266)">
-<path d="M9.26339 2.70491C11.1973 2.76946 12.4932 4.14195 12.6563 5.19395C12.6563 5.19395 10.5149 5.02959 9.26339 2.70491Z" fill="#F4F4F4"/>
-</g>
-<g filter="url(#filter2_g_326_1266)">
-<path d="M8.64517 2.92113C9.7402 4.44671 9.35595 6.25894 8.56807 7.00957C8.56807 7.00957 7.43371 5.26514 8.64517 2.92113Z" fill="#F4F4F4"/>
-</g>
-<g filter="url(#filter3_g_326_1266)">
-<path d="M8.06233 2.87027C7.42995 4.61902 5.67736 5.40053 4.57778 5.24072C4.57778 5.24072 5.37085 3.33167 8.06233 2.87027Z" fill="#F4F4F4"/>
-</g>
-<defs>
-<filter id="filter0_g_326_1266" x="0.291446" y="0.992129" width="16.4171" height="15.7164" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-<feTurbulence type="fractalNoise" baseFrequency="0.25973913073539734 0.25973913073539734" numOctaves="3" seed="6789" />
-<feDisplacementMap in="shape" scale="0.41710880398750305" xChannelSelector="R" yChannelSelector="G" result="displacedImage" width="100%" height="100%" />
-<feMerge result="effect1_texture_326_1266">
-<feMergeNode in="displacedImage"/>
-</feMerge>
-</filter>
-<filter id="filter1_g_326_1266" x="9.11776" y="2.55905" width="3.6844" height="2.78083" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-<feTurbulence type="fractalNoise" baseFrequency="0.37125512957572937 0.37125512957572937" numOctaves="3" seed="6789" />
-<feDisplacementMap in="shape" scale="0.29181948304176331" xChannelSelector="R" yChannelSelector="G" result="displacedImage" width="100%" height="100%" />
-<feMerge result="effect1_texture_326_1266">
-<feMergeNode in="displacedImage"/>
-</feMerge>
-</filter>
-<filter id="filter2_g_326_1266" x="7.94003" y="2.77523" width="1.52912" height="4.3802" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-<feTurbulence type="fractalNoise" baseFrequency="0.37125518918037415 0.37125518918037415" numOctaves="3" seed="6789" />
-<feDisplacementMap in="shape" scale="0.29181945323944092" xChannelSelector="R" yChannelSelector="G" result="displacedImage" width="100%" height="100%" />
-<feMerge result="effect1_texture_326_1266">
-<feMergeNode in="displacedImage"/>
-</feMerge>
-</filter>
-<filter id="filter3_g_326_1266" x="4.43222" y="2.72433" width="3.77619" height="2.68269" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-<feTurbulence type="fractalNoise" baseFrequency="0.37125512957572937 0.37125512957572937" numOctaves="3" seed="6789" />
-<feDisplacementMap in="shape" scale="0.29181948304176331" xChannelSelector="R" yChannelSelector="G" result="displacedImage" width="100%" height="100%" />
-<feMerge result="effect1_texture_326_1266">
-<feMergeNode in="displacedImage"/>
-</feMerge>
-</filter>
-</defs>
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="8" cy="8" r="8" fill="#EA373D"/>
+<path d="M5.5435 3.61956C4.47716 4.49665 3.10629 4.59197 3.10629 4.59197C3.10629 4.59197 3.4643 3.26524 4.53064 2.38816C5.59699 1.51107 6.96785 1.41575 6.96785 1.41575C6.96785 1.41575 6.60984 2.74248 5.5435 3.61956Z" fill="#F4F4F4"/>
+<path d="M8.79464 3.8999C8.79464 5.28061 7.99742 6.3999 7.99742 6.3999C7.99742 6.3999 7.2002 5.28061 7.2002 3.8999C7.2002 2.51919 7.99742 1.3999 7.99742 1.3999C7.99742 1.3999 8.79464 2.51919 8.79464 3.8999Z" fill="#F4F4F4"/>
+<path d="M11.5437 2.3883C12.61 3.26542 12.968 4.59216 12.968 4.59216C12.968 4.59216 11.5971 4.49679 10.5308 3.61967C9.46451 2.74254 9.10655 1.41581 9.10655 1.41581C9.10655 1.41581 10.4774 1.51117 11.5437 2.3883Z" fill="#F4F4F4"/>
 </svg>

@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Readex+Pro:wght@160..700&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Readex+Pro:wght@160..700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Readex+Pro:wght@160..700&display=swap");
 
 :root {
   --white: #f4f4f4;
@@ -175,7 +175,8 @@ header {
 
 .recipe-image {
   width: 100%;
-  height: auto;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
   margin-bottom: 1rem;
 }
 
@@ -258,7 +259,7 @@ header {
   height: fit-content;
 }
 
-.filter-overlay {
+.filter-form {
   background-image: url("../assets/filter-bg.svg");
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -377,7 +378,9 @@ footer {
   margin-top: calc(var(--rhythm) * 2);
 }
 
-.page-heading, .page-subtitle, .recipe-info  {
+.page-heading,
+.page-subtitle,
+.recipe-info {
   text-align: center;
 }
 
@@ -478,7 +481,6 @@ footer {
   margin-bottom: 0;
 }
 
-
 /* Responsive Styles */
 @media (max-width: 1200px) {
   .recipe-page-main {
@@ -496,7 +498,7 @@ footer {
 }
 
 @media (max-width: 900px) {
-  body.filter-overlay-open::before {
+  body.filter-form-open::before {
     content: "";
     position: fixed;
     inset: 0;
@@ -555,7 +557,7 @@ footer {
     color: var(--primary-color);
   }
 
-  .filter-overlay {
+  .filter-form {
     position: fixed;
     left: 0;
     right: 0;
@@ -573,7 +575,7 @@ footer {
     -webkit-overflow-scrolling: touch;
   }
 
-  .filter-overlay.active {
+  .filter-form.active {
     transform: translateY(0);
     z-index: 1000;
   }
@@ -642,16 +644,14 @@ footer {
     border-top: 1px solid var(--light-gray);
     padding: var(--rhythm) 0;
     gap: var(--rhythm);
-   align-items: start;
+    align-items: start;
   }
 
   .recipe-image {
-    width: 100%;
-    height: auto;
     margin-bottom: 0;
-   display: block;
-   align-self: start;
-   object-fit: contain;
+    display: block;
+    align-self: start;
+    object-fit: cover;
   }
 
   .recipe-cards-container {
