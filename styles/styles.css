@@ -165,7 +165,7 @@ header {
   grid-template-rows: auto 1fr;
   cursor: pointer;
   width: 100%;
-  max-width: 300px;
+  max-width: 400px;
   font-family: var(--font-sans);
   transition: transform 0.2s;
 }
