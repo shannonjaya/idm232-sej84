@@ -8,8 +8,8 @@
               <h2 class="recipe-title"><?php echo $recipe['title']; ?></h2>
               <p class="recipe-subtitle"><?php echo $recipe['subtitle']; ?></p>
               <div class="recipe-info">
-                <span class="recipe-time">
-                  <svg
+               <span class="recipe-time">
+               <svg
                     class="time-icon"
                     width="28"
                     height="28"
@@ -38,13 +38,13 @@
                         fill="#909090"
                       />
                     </g>
-                  </svg>
-                  <?php echo $recipe['cook_time']; ?> min
-                </span>
-                <div class="divider"></div>
-                <span class="recipe-servings"><?php echo $recipe['servings']; ?> servings</span>
-              </div>
-            </div>
-          </a>
+               </svg>
+            <?php echo $recipe['cook_time']; ?> min
+          </span>
+        <div class="divider"></div>
+      <span class="recipe-servings"><?php echo $recipe['servings']; ?> servings</span>
+    </div>
+  </div>
+</a>
 
           
