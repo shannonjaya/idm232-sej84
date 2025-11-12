@@ -156,7 +156,10 @@
           <?php 
           if (mysqli_num_rows($results) > 0) {
             while ($recipe = mysqli_fetch_assoc($results)) {
+              ob_start();
               include "recipe-card.php";
+              $recipe_card = ob_get_clean();
+              echo str_replace(["\n", "\r"], '', $recipe_card);
             }
           } else {
             include "no-results.php";
