@@ -11,12 +11,13 @@ function clearFilters() {
   const clearBtn = document.querySelector(".clear-filters-btn");
   if (clearBtn) {
     clearBtn.addEventListener("click", () => {
-      document
-        .querySelectorAll('.filter-option input[type="checkbox"]')
-        .forEach((cb) => (cb.checked = false));
-
-      const form = clearBtn.closest('form');
-      if (form) form.submit();
+      const checkboxes = document.querySelectorAll('.filter-option input[type="checkbox"]');
+      const anyChecked = Array.from(checkboxes).some(cb => cb.checked);
+      if (anyChecked) {
+        checkboxes.forEach((cb) => (cb.checked = false));
+        const form = clearBtn.closest('form');
+        if (form) form.submit();
+      }
     });
   }
 }
