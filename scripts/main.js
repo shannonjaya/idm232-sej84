@@ -25,7 +25,7 @@ function clearFilters() {
 // Mobile filter overlay
 const filterBtn = document.querySelector(".mobile-filter-btn");
 const filterForm = document.querySelector(".filter-form");
-const closeFiltersBtn = document.querySelector(".close-filters-btn");
+const closeFiltersBtn = document.querySelector(".close-filters-icon");
 
 if (filterBtn) {
   filterBtn.addEventListener("click", () => {

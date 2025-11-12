@@ -271,6 +271,7 @@ header {
   gap: var(--rhythm);
   height: fit-content;
   padding: calc(var(--rhythm) * 2) var(--rhythm);
+  position: relative;
 }
 
 .filter-bg-svg {
@@ -576,11 +577,11 @@ footer {
   }
 
   .close-filters-btn {
-    display: block;
-    position: absolute;
-    top: calc(var(--rhythm) * 1.5);
-    right: calc(var(--rhythm) * 2);
+    display: flex;
+    width: 100%;
+    justify-content: right;
     color: var(--primary-color);
+    cursor: pointer;
   }
 
   .filter-form {
