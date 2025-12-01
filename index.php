@@ -69,10 +69,12 @@
 
         <!-- Filter Form -->
         <form action="index.php" method="get" class="filter-form">
-          <div class="close-filters-btn">
-            <img class="close-filters-icon" src="assets/close.svg" alt="Help" width="36" height="36" />
+          <div class="filter-header">
+            <h3 class="filter-title">Filter By</h3>
+                    <div class="close-filters-btn">
+              <img class="close-filters-icon" src="assets/close.svg" alt="Help" width="36" height="36" />
+            </div>
           </div>
-          <h3 class="filter-title">Filter By</h3>
           <div class="filter-options">
             <?php include "filter-options.php"; ?>
           </div>
