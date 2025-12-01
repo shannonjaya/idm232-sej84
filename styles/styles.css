@@ -687,7 +687,8 @@ footer {
     grid-template-columns: 1fr 1fr;
     border-top: 1px solid var(--light-gray);
     padding: var(--rhythm) 0;
-    gap: var(--rhythm);
+    column-gap: calc(var(--rhythm) * 1);
+    row-gap: 0;
     align-items: start;
   }
 
@@ -700,6 +701,7 @@ footer {
   .recipe-cards-container {
     grid-template-columns: 1fr;
     justify-items: center;
+    gap: 0;
   }
 }
 
@@ -707,17 +709,17 @@ footer {
   .recipe-title,
   .recipe-subtitle,
   .recipe-time,
-  .recipe-calories .recipe-servings {
+  .recipe-servings {
     font-size: 0.875rem;
     line-height: 1.125rem;
   }
   .time-icon {
-    width: 16px;
-    height: 16px;
+    display: none;
   }
 
   .recipe-card {
-    gap: calc(var(--rhythm) * 0.5);
+    column-gap: calc(var(--rhythm) * 0.5);
+    row-gap: 0;
   }
 
   .recipe-info {
