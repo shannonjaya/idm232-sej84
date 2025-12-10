@@ -324,6 +324,12 @@ white-space: wrap;
 .chip-close img {
   width: 16px;
   height: 16px;
+  transition: rotate 0.3s ease;
+}
+
+.chip-close img:hover {
+  cursor: pointer;
+  rotate: 90deg;
 }
 
 /* Search bar */
@@ -474,3 +480,4 @@ footer {
   margin-top: calc(var(--rhythm) * 5);
   text-align: center;
 }
+
