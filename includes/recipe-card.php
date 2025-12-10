@@ -4,6 +4,7 @@
     class="recipe-image"
     src="<?php echo 'assets/recipe-images/' . $recipe['id'] . '/' . $recipe['main_image']; ?>"
     alt="<?php echo htmlspecialchars($recipe['title']); ?>"
+    loading="lazy"
   >
             <div class="recipe-text">
               <h2 class="recipe-title"><?php echo $recipe['title']; ?></h2>

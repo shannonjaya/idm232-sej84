@@ -38,18 +38,16 @@
         }
       ?>
         <?php
-          // Build removable chips for search and filters
           $chips = [];
 
-          // Base query params
           $baseParams = [];
           if (!empty($filters)) {
             $baseParams['filter'] = $filters;
           }
-
+          
           // Search chip
           if (!empty($search_query)) {
-            $removeSearchParams = $baseParams; // remove search by not including it
+            $removeSearchParams = $baseParams; 
             $removeSearchUrl = 'all-recipes.php' . (empty($removeSearchParams) ? '' : ('?' . http_build_query($removeSearchParams)));
             $chips[] = '<span class="chip"><span class="body-text">&quot;' . htmlspecialchars($search_query) . '&quot;</span><a class="chip-close" href="' . $removeSearchUrl . '" aria-label="Remove search"><img src="assets/close.svg" alt="Remove" width="16" height="16"></a></span>';
           }
