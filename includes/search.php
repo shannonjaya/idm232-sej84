@@ -13,7 +13,7 @@ function performSearch($connection) {
   $search_query = isset($_GET['search']) ? sanitizeInput($_GET['search']) : '';
   $filters = isset($_GET['filter']) ? $_GET['filter'] : [];
 
-  $sql = "SELECT * FROM idm232_sej84 WHERE 1";
+  $sql = "SELECT id, title, subtitle, main_image, cook_time, servings, protein FROM idm232_sej84 WHERE 1";
   $params = [];
   $types = '';
 
