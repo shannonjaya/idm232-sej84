@@ -274,14 +274,15 @@ h3.results {
   display: flex;
   align-items: baseline;
   gap: calc(var(--rhythm) * 0.5);
+  border-bottom: 1px solid var(--light-gray);
+  border-top: 1px solid var(--light-gray);
+  padding: calc(var(--rhythm) * 1) 0;
+  color: var(--primary-color);
 }
 
 .results {
   margin: calc(var(--rhythm) * 3) 0 0 0;
-  padding: calc(var(--rhythm) * 1) 0;
   color: var(--primary-color);
-  border-bottom: 1px solid var(--light-gray);
-  border-top: 1px solid var(--light-gray);
 }
 
 /* Recipes container and grid */
