@@ -152,7 +152,7 @@ nav .header-search {
   margin-bottom: calc(var(--rhythm) * 2);
 }
 
-.header-search input[type="text"]:placeholder-shown {
+.header-search input[type="text"]:focus, .header-search input[type="text"]:not(:placeholder-shown) {
   padding: 0;
 }
 
