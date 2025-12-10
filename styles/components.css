@@ -11,7 +11,7 @@
   text-transform: uppercase;
   letter-spacing: 0.125rem;
   font-size: 0.75rem;
-  font-weight: 700;
+  font-weight: 600;
   opacity: 1;
 }
 
@@ -25,7 +25,7 @@
   text-transform: uppercase;
   letter-spacing: 0.125rem;
   font-size: 0.75rem;
-  font-weight: 700;
+  font-weight: 600;
   width: 84px;
   transition: all 0.3s ease;
 }
@@ -479,5 +479,49 @@ white-space: wrap;
 footer {
   margin-top: calc(var(--rhythm) * 5);
   text-align: center;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: calc(var(--rhythm) * 3);
+  margin-bottom: calc(var(--rhythm) * 2);
+  flex-wrap: wrap;
+}
+
+.pagination-btn,
+.pagination-number {
+  padding: calc(var(--rhythm) * 0.5) calc(var(--rhythm) * 1);
+  border: 1px solid var(--primary-color);
+  background-color: transparent;
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.125rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+}
+
+.pagination-btn:hover,
+.pagination-number:hover {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+}
+
+.pagination-number.active {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  pointer-events: none;
+}
+
+.pagination-dots {
+  color: var(--primary-color);
+  font-weight: 700;
+  padding: 0 0.25rem;
 }
 

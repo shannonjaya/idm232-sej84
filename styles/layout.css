@@ -28,13 +28,14 @@ main {
   animation: fade-in-up 0.8s ease;
 }
 
+/* Header and Navigation Styles */
 header {
   color: var(--primary-color);
   position: fixed;
-  z-index: 900;
+  z-index: 1001;
   top: 0;
   width: 100%;
-  height: 90px;
+  height: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -42,29 +43,218 @@ header {
   background-color: var(--background-color);
 }
 
+.brand-container {
+  display: flex;
+  align-items: center;
+  z-index: 1002;
+}
+
+.logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+  margin: 0;
+  letter-spacing: 0.125rem;
+}
+
 .menu-item {
   cursor: pointer;
   transition: all ease 0.3s;
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
 }
 
 .menu-item:hover {
   translate: 0 -2px;
+  color: var(--foreground-color);
 }
 
-.menu-items-right {
+/* Hamburger Menu Toggle */
+.nav-toggle {
+  display: none;
+}
+
+.nav-toggle-label {
+  cursor: pointer;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 1002;
+  order: 2;
+}
+
+.nav-toggle-label span {
+  width: 24px;
+  height: 1.5px;
+  background-color: var(--primary-color);
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+/* Mobile Navigation */
+nav {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--background-color);
+  z-index: 1000;
+  transition: right 0.3s ease;
+  padding: calc(var(--rhythm) * 7) calc(var(--rhythm) * 1)
+    calc(var(--rhythm) * 1);
+  overflow-y: auto;
+}
+
+.nav-toggle:checked ~ nav {
+  right: 0;
+}
+
+.nav-toggle:checked ~ .nav-toggle-label span:nth-child(1) {
+  transform: rotate(45deg) translateY(11px);
+}
+
+.nav-toggle:checked ~ .nav-toggle-label span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle:checked ~ .nav-toggle-label span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-10px);
+}
+
+ul.nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+nav ul.nav li a {
+  padding: calc(var(--rhythm) * 0.5) 0;
+  display: block;
+  color: var(--primary-color);
+}
+
+.nav-divider {
+  display: none;
+}
+
+nav .header-search {
+  width: 100%;
+  display: flex;
+  gap: calc(var(--rhythm) * 0.5);
   align-items: center;
-  gap: calc(var(--rhythm) * 1);
+  padding: calc(var(--rhythm) * 0.5) 0;
+  border-bottom: 1px solid var(--light-gray);
+  margin-bottom: calc(var(--rhythm) * 2);
 }
 
-.menu-items-right .menu-item {
-  padding: 0 var(--rhythm);
+.header-search input[type="text"]:placeholder-shown {
+  padding: 0;
 }
 
-.menu-items-right .menu-item#all-recipes {
-  border-left: 1px solid var(--light-gray);
-  border-right: 1px solid var(--light-gray);
+nav .header-search input {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  padding: calc(var(--rhythm) * 0.5);
+  border-radius: 4px;
+  color: var(--background-color);
+  font-size: 1rem;
+}
+
+nav .header-search input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+nav .header-search button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Desktop Navigation */
+@media (min-width: 900px) {
+  header {
+    height: 70px;
+    padding: calc(var(--rhythm) * 1) calc(var(--rhythm) * 2);
+  }
+
+  .nav-toggle-label {
+    display: none;
+  }
+
+  nav {
+    position: static;
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: calc(var(--rhythm) * 2);
+    z-index: auto;
+    right: auto;
+    transition: none;
+  }
+
+  ul.nav {
+    display: flex;
+    flex-direction: row;
+    gap: calc(var(--rhythm) * 2);
+    margin: 0;
+    margin-bottom: 0;
+  }
+
+  ul.nav li.nav-divider {
+    display: flex;
+  }
+
+  ul.nav li.nav-divider .divider {
+    display: block;
+    width: 1px;
+    height: 20px;
+    background-color: var(--light-gray);
+    border-radius: 0;
+  }
+
+  ul.nav li a {
+    padding: 0;
+  }
+
+  ul.nav li a:hover {
+    transform: none;
+  }
+
+  nav .header-search {
+    width: auto;
+    border: none;
+    padding: 0;
+    margin: 0;
+    margin-left: auto;
+    flex-direction: row;
+  }
+
+  nav .header-search input {
+    background: transparent;
+    border: none;
+    color: var(--primary-color);
+    padding: 0;
+  }
+
+  nav .header-search input::placeholder {
+    color: var(--light-gray);
+  }
+
+  nav .header-search button img {
+    filter: none;
+  }
 }
 
 .hero {
@@ -105,4 +295,3 @@ h3.results {
 .recipes-container .recipe-container {
   grid-column: 2;
 }
-
