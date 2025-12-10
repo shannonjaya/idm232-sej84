@@ -14,7 +14,7 @@
   <body>
     <!-- DB Connection and Data Fetch -->
     <?php
-      require_once "db.php";
+      require_once "includes/db.php";
 
       $recipe_id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 
@@ -36,7 +36,7 @@
       ?>
 
     <!-- Header -->
-    <?php include("header.php") ?>
+    <?php include_once "includes/header.php"; ?>
 
     <main class="recipe-page-main">
       <div class="page-header">
@@ -175,11 +175,11 @@
     </main>
     
     <!-- Footer -->
-    <?php include("footer.php") ?>
+    <?php include_once "includes/footer.php"; ?>
     
     <!-- Close Connection -->
     <?php
-    mysqli_close($connection); 
+    include_once "includes/db-close.php"; 
     ?>
     
     <script src="scripts/main.js"></script>

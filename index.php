@@ -14,101 +14,34 @@
   <body>
 
     <!-- DB Connection -->
-    <?php require_once "db.php"; ?>
+    <?php require_once "includes/db.php"; ?>
 
     <!-- Search/Filter Logic -->
     <?php
-    $search_query = isset($_GET['search']) ? $_GET['search'] : '';
-    $filters = isset($_GET['filter']) ? $_GET['filter'] : [];
-
-    $sql_query = "SELECT * FROM idm232_sej84 WHERE 1";
-
-    if ($search_query) {
-      $search_safe = mysqli_real_escape_string($connection, $search_query);
-      $sql_query .= " AND (title LIKE '%$search_safe%' OR subtitle LIKE '%$search_safe%')";
-    }
-
-    if (!empty($filters)) {
-      $filter_safe = array_map(function($f) use ($connection) {
-        return mysqli_real_escape_string($connection, $f);
-      }, $filters);
-      $filter_list = "'" . implode("','", $filter_safe) . "'";
-      $sql_query .= " AND protein IN ($filter_list)";
-    }
-
-    $results = mysqli_query($connection, $sql_query);
+      require_once "includes/search.php";
+      $search_query = isset($_GET['search']) ? sanitizeInput($_GET['search']) : '';
+      $results = performSearch($connection);
     ?>
 
     <!-- Header -->
-    <?php include "header.php"; ?>
-
-    <div class="hero">
-      <img src="assets/hero-image.png" alt="Crave Hero" class="hero-img">
-    </div>
+    <?php include_once "includes/header.php"; ?>
 
     <main>
-      <div class="search-filter-container">
-
-        <!-- Search Form -->
-        <form action="index.php" method="get" class="search-bar">
-          <input
-            type="text"
-            placeholder="Find your next meal..."
-            name="search"
-            value="<?php echo htmlspecialchars($search_query); ?>"
-          >
-          <button type="submit" enabled aria-label="Search">
-            <img src="assets/search.svg" alt="Search" width="36" height="36" />
-          </button>
-        </form>
-
-        <button type="button" class="mobile-filter-btn">
-          <img src="assets/filter.svg" alt="Filter" width="24" height="24" />
-          FILTER
-        </button>
-
-        <!-- Filter Form -->
-        <form action="index.php" method="get" class="filter-form">
-          <div class="filter-header">
-            <h3 class="filter-title">Filter By</h3>
-                    <div class="close-filters-btn">
-              <img class="close-filters-icon" src="assets/close.svg" alt="Help" width="36" height="36" />
-            </div>
-          </div>
-          <div class="filter-options">
-            <?php include "filter-options.php"; ?>
-          </div>
-          <button class="clear-filters-btn" type="button">Clear All</button>
-        </form>
+      <div class="hero">
+        <h1 class="hero-title">Food worth craving...</h1>
       </div>
-
-      <!-- Recipe Cards -->
-      <div class="recipe-container">
-        <div class="recipe-cards-container">
-          <?php 
-          if (mysqli_num_rows($results) > 0) {
-            while ($recipe = mysqli_fetch_assoc($results)) {
-              ob_start();
-              include "recipe-card.php";
-              $recipe_card = ob_get_clean();
-              echo str_replace(["\n", "\r"], '', $recipe_card);
-            }
-          } else {
-            include "no-results.php";
-          }
-          
-          ?>
-        </div>
-      </div>
+      <section class="home-featured">
+        <?php include_once "includes/featured-recipe.php"; ?>
+        <?php include_once "includes/featured-list.php"; ?>
+      </section>
+      <?php include_once "includes/help-section.php"; ?>
     </main>
 
     <!-- Footer -->
-    <?php include "footer.php";?>
+    <?php include_once "includes/footer.php";?>
     
     <!-- Close Connection -->
-    <?php
-    mysqli_close($connection); 
-    ?>
+    <?php include_once "includes/db-close.php"; ?>
     
     <script src="scripts/main.js"></script>
   </body>

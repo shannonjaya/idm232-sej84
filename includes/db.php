@@ -7,18 +7,18 @@ $env_vars = [
     'DB_NAME'     => $_SERVER['REDIRECT_DB_NAME']     ?? $_SERVER['DB_NAME']     ?? null
 ];
 
-if (in_array(null, $env_vars, true))
+if (in_array(null, $env_vars, true)) {
     die('Missing required environment variables');
+}
 
 define('DB_SERVER', $env_vars['DB_SERVER']);
 define('DB_USER',   $env_vars['DB_USERNAME']);
 define('DB_PASS',   $env_vars['DB_PASSWORD']);
 define('DB_NAME',   $env_vars['DB_NAME']);
 
-// Create database connection 
+// Create database connection
 $connection = new mysqli(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
 
-if ($connection->connect_error)
+if ($connection->connect_error){
     die("Connection failed: " . $connection->connect_error);
-
-?>
+}

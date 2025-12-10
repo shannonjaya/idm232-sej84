@@ -1,3 +1,4 @@
+<!-- No results template -->
 <div class="no-results-card">
   <h2 class="no-results-title">No Results Found</h2>
   <p class="no-results-text">

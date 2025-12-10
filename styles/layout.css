@@ -1,0 +1,92 @@
+/* Reusable layout styles for all pages */
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 1250px;
+  width: 100%;
+  margin: auto;
+  padding-left: calc(var(--rhythm) * 2);
+  padding-right: calc(var(--rhythm) * 2);
+  gap: calc(var(--rhythm) * 3);
+  box-sizing: border-box;
+}
+
+header {
+  color: var(--primary-color);
+  position: fixed;
+  z-index: 900;
+  top: 0;
+  width: 100%;
+  height: 90px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: calc(var(--rhythm) * 1);
+  background-color: var(--background-color);
+}
+
+.menu-item {
+  cursor: pointer;
+  transition: all ease 0.3s;
+}
+
+.menu-item:hover {
+  translate: 0 -2px;
+}
+
+.menu-items-right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: calc(var(--rhythm) * 1);
+}
+
+.menu-items-right .menu-item {
+  padding: 0 var(--rhythm);
+}
+
+.menu-items-right .menu-item#all-recipes {
+  border-left: 1px solid var(--light-gray);
+  border-right: 1px solid var(--light-gray);
+}
+
+.hero {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  padding: 0;
+  padding-top: calc(var(--rhythm) * 7);
+}
+
+h3.results {
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  gap: calc(var(--rhythm) * 0.5);
+}
+
+.results {
+  margin: calc(var(--rhythm) * 3) 0 calc(var(--rhythm) * 2) 0;
+  color: var(--primary-color);
+}
+
+/* Recipes container and grid */
+
+.recipes-container {
+  display: grid;
+  grid-template-columns: clamp(160px, 18vw, 240px) 1fr;
+  gap: calc(var(--rhythm) * 3);
+  max-width: 100%;
+}
+
+.recipes-container .filter-container {
+  grid-column: 1;
+}
+
+.recipes-container .recipe-container {
+  grid-column: 2;
+}
+
