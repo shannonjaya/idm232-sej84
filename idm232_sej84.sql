@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.1.1deb5ubuntu1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:8889
--- Generation Time: Dec 10, 2025 at 07:55 PM
--- Server version: 8.0.40
--- PHP Version: 8.3.14
+-- Host: localhost:3306
+-- Generation Time: Dec 11, 2025 at 01:08 AM
+-- Server version: 10.6.22-MariaDB-0ubuntu0.22.04.1
+-- PHP Version: 8.1.2-1ubuntu2.22
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,47 +28,47 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `idm232_sej84` (
-  `id` int NOT NULL,
-  `title` varchar(42) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
-  `subtitle` varchar(47) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
-  `description` varchar(416) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
-  `cook_time` int DEFAULT NULL,
-  `servings` int DEFAULT NULL,
-  `calories` int DEFAULT NULL,
-  `protein` varchar(10) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
-  `main_image` varchar(61) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
-  `ingredients_image` varchar(47) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
-  `steps_images` varchar(449) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
-  `all_ingredients` varchar(412) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
-  `all_steps` varchar(3309) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
-  `ingredient_1` varchar(36) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
-  `ingredient_2` varchar(59) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
-  `ingredient_3` varchar(36) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
-  `ingredient_4` varchar(119) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
-  `ingredient_5` varchar(151) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
-  `ingredient_6` varchar(80) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
-  `ingredient_7` varchar(41) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
-  `ingredient_8` varchar(102) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
-  `ingredient_9` varchar(119) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
-  `ingredient_10` varchar(117) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
-  `ingredient_11` varchar(133) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
-  `ingredient_12` varchar(99) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
-  `ingredient_13` varchar(96) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
-  `step_title_1` varchar(52) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
-  `step_desc_1` varchar(898) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
-  `step_title_2` varchar(53) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
-  `step_desc_2` varchar(748) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
-  `step_title_3` varchar(43) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
-  `step_desc_3` varchar(697) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
-  `step_title_4` varchar(46) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
-  `step_desc_4` varchar(739) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
-  `step_title_5` varchar(47) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
-  `step_desc_5` varchar(869) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
-  `step_title_6` varchar(44) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
-  `step_desc_6` varchar(593) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
-  `how_to_name` varchar(44) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
-  `how_to_desc` varchar(877) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+  `id` int(11) NOT NULL,
+  `title` varchar(42) DEFAULT NULL,
+  `subtitle` varchar(47) DEFAULT NULL,
+  `description` varchar(416) DEFAULT NULL,
+  `cook_time` int(11) DEFAULT NULL,
+  `servings` int(11) DEFAULT NULL,
+  `calories` int(11) DEFAULT NULL,
+  `protein` varchar(10) DEFAULT NULL,
+  `main_image` varchar(61) DEFAULT NULL,
+  `ingredients_image` varchar(47) DEFAULT NULL,
+  `steps_images` varchar(449) DEFAULT NULL,
+  `all_ingredients` varchar(412) DEFAULT NULL,
+  `all_steps` varchar(3309) DEFAULT NULL,
+  `ingredient_1` varchar(36) DEFAULT NULL,
+  `ingredient_2` varchar(59) DEFAULT NULL,
+  `ingredient_3` varchar(36) DEFAULT NULL,
+  `ingredient_4` varchar(119) DEFAULT NULL,
+  `ingredient_5` varchar(151) DEFAULT NULL,
+  `ingredient_6` varchar(80) DEFAULT NULL,
+  `ingredient_7` varchar(41) DEFAULT NULL,
+  `ingredient_8` varchar(102) DEFAULT NULL,
+  `ingredient_9` varchar(119) DEFAULT NULL,
+  `ingredient_10` varchar(117) DEFAULT NULL,
+  `ingredient_11` varchar(133) DEFAULT NULL,
+  `ingredient_12` varchar(99) DEFAULT NULL,
+  `ingredient_13` varchar(96) DEFAULT NULL,
+  `step_title_1` varchar(52) DEFAULT NULL,
+  `step_desc_1` varchar(898) DEFAULT NULL,
+  `step_title_2` varchar(53) DEFAULT NULL,
+  `step_desc_2` varchar(748) DEFAULT NULL,
+  `step_title_3` varchar(43) DEFAULT NULL,
+  `step_desc_3` varchar(697) DEFAULT NULL,
+  `step_title_4` varchar(46) DEFAULT NULL,
+  `step_desc_4` varchar(739) DEFAULT NULL,
+  `step_title_5` varchar(47) DEFAULT NULL,
+  `step_desc_5` varchar(869) DEFAULT NULL,
+  `step_title_6` varchar(44) DEFAULT NULL,
+  `step_desc_6` varchar(593) DEFAULT NULL,
+  `how_to_name` varchar(44) DEFAULT NULL,
+  `how_to_desc` varchar(877) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 
 --
 -- Dumping data for table `idm232_sej84`
@@ -135,7 +135,7 @@ ALTER TABLE `idm232_sej84`
 -- AUTO_INCREMENT for table `idm232_sej84`
 --
 ALTER TABLE `idm232_sej84`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
