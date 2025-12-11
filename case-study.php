@@ -106,7 +106,7 @@
               <li><strong>Features:</strong> 37 recipes with search and filtering</li>
               <li><strong>Visual Design:</strong> Clean and consistent layout and branding</li>
             </ul>
-            <p class="description"><strong>Conclusion:</strong> This project pushed me to think beyond just the interface and understand how data actually moves through a system. I also got to practice building more modular components and following better coding best practices, which helped keep the project organized and easier to maintain. As for the UX side, although I didn’t get the chance to run full user tests on Crave, I hope to revisit the application in the future to refine it based on real user feedback and continue to grow my developemnt skills.</p>
+            <p class="description"><strong>Conclusion:</strong> This project pushed me to think beyond just the interface and understand how data actually moves through a system. I also got to practice building more modular components and following better coding best practices, which helped keep the project organized and easier to maintain. As for the UX side, although I didn’t get the chance to run full user tests on Crave, I hope to revisit the application in the future to refine it based on real user feedback and continue to grow my development skills.</p>
           </div>
           <div class="image-column">
             <img src="assets/results.png" alt="The Results" class="recipe-image-large" loading="lazy">
