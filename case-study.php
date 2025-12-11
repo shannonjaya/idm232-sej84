@@ -22,7 +22,7 @@
     <main class="recipe-page-main case-study">
       <!-- Page Header with Hero Image -->
       <div class="page-header">
-        <img src="assets/case-study-hero.png" alt="Crave Hero" class="page-header-image">
+        <img src="assets/case-study-hero.avif" alt="Crave Hero" class="page-header-image" loading="lazy">
       </div>
 
       <!-- Table of Contents Sidebar -->
@@ -71,8 +71,8 @@
             
             <!-- Process Images Side by Side -->
             <div class="process-images">
-              <img src="assets/process-technical.png" alt="Process & Insight" class="process-image">
-              <img src="assets/process-design.png" alt="Process & Insight Design" class="process-image">
+              <img src="assets/process-technical.avif" alt="Process & Insight" class="process-image" loading="lazy">
+              <img src="assets/process-design.avif" alt="Process & Insight Design" class="process-image" loading="lazy">
             </div>
           </div>
         </div>
@@ -90,7 +90,7 @@
               <li><strong>Responsive Navigation:</strong> Hamburger menu on mobile, horizontal nav on desktop</li>
               <li><strong>API Support:</strong> JSON endpoints for all recipes and individual recipes</li>
             </ul>
-            <img src="assets/solution.png" alt="The Solution" class="solution-full-width-image">
+            <img src="assets/solution.avif" alt="The Solution" class="solution-full-width-image" loading="lazy">
           </div>
         </div>
 
@@ -109,7 +109,7 @@
             <p class="description"><strong>Conclusion:</strong> This project pushed me to think beyond just the interface and understand how data actually moves through a system. I also got to practice building more modular components and following better coding best practices, which helped keep the project organized and easier to maintain. As for the UX side, although I didn’t get the chance to run full user tests on Crave, I hope to revisit the application in the future to refine it based on real user feedback and continue to grow my developemnt skills.</p>
           </div>
           <div class="image-column">
-            <img src="assets/results.png" alt="The Results" class="recipe-image-large">
+            <img src="assets/results.png" alt="The Results" class="recipe-image-large" loading="lazy">
           </div>
         </div>
       </div>
