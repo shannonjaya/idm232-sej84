@@ -46,6 +46,16 @@
   text-align: center;
   border-bottom: 1px solid var(--light-gray);
   padding-bottom: calc(var(--rhythm) * 2);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.page-header-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0;
 }
 
 .recipe-info,
@@ -73,7 +83,7 @@
   width: 100%;
   gap: calc(var(--rhythm) * 3);
   border-bottom: 1px solid var(--light-gray);
-  padding: calc(var(--rhythm) * 5) 0;
+  padding: calc(var(--rhythm) * 3) 0;
 }
 
 .text-column {
@@ -97,6 +107,35 @@
 .image-column > img {
   width: 100%;
   height: auto;
+}
+
+.case-study #overview .text-column,
+.case-study #context .text-column,
+.case-study #process .text-column,
+.case-study #solution .text-column {
+  width: 100%;
+  padding-right: 0;
+}
+
+.solution-full-width-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-top: calc(var(--rhythm) * 2);
+}
+
+.process-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: calc(var(--rhythm) * 2);
+  margin-top: calc(var(--rhythm) * 2);
+  width: 100%;
+}
+
+.process-image {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .table-of-contents-container {
@@ -133,13 +172,6 @@
 
 .table-of-contents-card h3 {
   color: var(--primary-color);
-}
-
-.recipe-details {
-  display: flex;
-  flex-direction: row;
-  gap: calc(var(--rhythm) * 2);
-  color: var(--gray);
 }
 
 .text-section {

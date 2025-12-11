@@ -137,13 +137,13 @@
   color: var(--black);
 }
 
-.featured-title, .help-title {
+.featured-title,
+.help-title {
   font-size: 3rem;
   line-height: 3rem;
   margin-top: calc(var(--rhythm) * 0.5);
   color: var(--primary-color);
   white-space: nowrap;
-  overflow: hidden;
   text-overflow: ellipsis;
 }
 
@@ -151,32 +151,27 @@
   color: var(--black);
 }
 
-.featured-link {
-  display: inline-block;
-  margin-top: 0.5rem;
-  font-weight: 700;
-  letter-spacing: 0.05rem;
-}
-
-.featured-cards-container .recipe-title, .featured-cards-container .recipe-subtitle, .featured-cards-container .recipe-info {
-    font-size: 0.875rem;
-    line-height: 1.25rem;
+.featured-cards-container .recipe-title,
+.featured-cards-container .recipe-subtitle,
+.featured-cards-container .recipe-info {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
 /* Help */
 .help-section {
-    display: grid;
-    grid-template-columns: minmax(220px, 280px) 1fr;
-    align-items: start;
-    gap: calc(var(--rhythm) * 3);
-    max-width: 1200px;
-    width: 100%;
-    margin-top: calc(var(--rhythm) * 2);
-    box-sizing: border-box;
+  display: grid;
+  grid-template-columns: minmax(220px, 280px) 1fr;
+  align-items: start;
+  gap: calc(var(--rhythm) * 3);
+  max-width: 1200px;
+  width: 100%;
+  margin-top: calc(var(--rhythm) * 2);
+  box-sizing: border-box;
 }
 
 .help-title {
-white-space: wrap;
+  white-space: wrap;
 }
 
 .help-carousel {
@@ -205,17 +200,17 @@ white-space: wrap;
 }
 
 .help-square h2 {
-    color: var(--background-color);
+  color: var(--background-color);
 }
 
 .help-square-title {
-    font-size: 2rem;
+  font-size: 2rem;
 }
 
 .help-square-text {
-    font-size: 0.875rem;
-    margin-bottom: 0;
-    text-align: left;
+  font-size: 0.875rem;
+  margin-bottom: 0;
+  text-align: left;
 }
 
 /* Recipe cards */
@@ -477,51 +472,89 @@ white-space: wrap;
   max-width: 600px;
 }
 footer {
+  background-color: var(--primary-color);
   margin-top: calc(var(--rhythm) * 5);
+  margin-bottom: 0;
+  padding-top: calc(var(--rhythm) * 4);
   text-align: center;
+  width: 100%;
 }
 
-/* Pagination */
-.pagination {
+.footer-text {
+    margin: 0;
+    padding: var(--rhythm);
+    color: var(--background-color);
+}
+
+.footer-links {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0.5rem;
-  margin-top: calc(var(--rhythm) * 3);
-  margin-bottom: calc(var(--rhythm) * 2);
+  gap: calc(var(--rhythm) * 1);
   flex-wrap: wrap;
+  margin-bottom: calc(var(--rhythm) * 1);
+  padding: 0 calc(var(--rhythm) * 1);
 }
 
-.pagination-btn,
-.pagination-number {
-  padding: calc(var(--rhythm) * 0.5) calc(var(--rhythm) * 1);
-  border: 1px solid var(--primary-color);
-  background-color: transparent;
+.footer-links .menu-item {
+  color: var(--background-color);
+}
+
+
+.case-study-container {
+  grid-column: 1;
+  width: 100%;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--light-gray);
+  margin: 0;
+  grid-column: 1;
+}
+
+/* Table of Contents */
+.table-of-contents-container {
+  position: sticky;
+  top: calc(var(--rhythm) * 6);
+  align-self: flex-start;
+  z-index: 10;
+  width: 100%;
+  min-width: 220px;
+  max-width: 240px;
+  height: fit-content;
+  margin-right: calc(var(--rhythm) * 2);
+  display: none;
+  grid-column: 2;
+}
+
+.table-of-contents-card {
+  color: var(--foreground-color);
+  display: flex;
+  flex-direction: column;
+  gap: var(--rhythm);
+}
+
+.table-of-contents-card h3 {
   color: var(--primary-color);
-  text-decoration: none;
-  font-weight: 700;
+  margin: 0;
   font-size: 0.875rem;
+  text-transform: uppercase;
   letter-spacing: 0.125rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border-radius: 4px;
-}
-
-.pagination-btn:hover,
-.pagination-number:hover {
-  background-color: var(--primary-color);
-  color: var(--background-color);
-}
-
-.pagination-number.active {
-  background-color: var(--primary-color);
-  color: var(--background-color);
-  pointer-events: none;
-}
-
-.pagination-dots {
-  color: var(--primary-color);
   font-weight: 700;
-  padding: 0 0.25rem;
 }
 
+.content-btn {
+  all: unset;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-weight: 200;
+  color: var(--gray);
+  font-size: 0.875rem;
+  padding: 0;
+  transition: color 0.3s ease;
+}
+
+.content-btn:hover {
+  color: var(--primary-color);
+}

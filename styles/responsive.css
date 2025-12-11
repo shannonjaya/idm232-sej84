@@ -1,7 +1,7 @@
 /* Responsive Styles */
 @media (max-width: 1200px) {
   .recipe-page-main {
-    margin: 0 0 0 calc(var(--rhythm) * 3);
+    margin: calc(var(--rhythm) * 7) 0 0 calc(var(--rhythm) * 3);
   }
   .text-section {
     padding: calc(var(--rhythm) * 2) calc(var(--rhythm) * 3);
@@ -205,6 +205,14 @@
     display: none;
   }
 
+  .table-of-contents-container {
+    display: none;
+  }
+
+  .case-study {
+    grid-template-columns: 1fr;
+  }
+
   .text-image-container {
     flex-direction: column;
     padding: calc(var(--rhythm) * 3) 0;
@@ -379,3 +387,14 @@
     text-align: left;
   }
 }
+
+@media (min-width: 1200px) {
+  .table-of-contents-container {
+    display: block;
+  }
+
+  .case-study {
+    grid-template-columns: 1fr 240px;
+  }
+}
+

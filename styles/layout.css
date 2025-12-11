@@ -56,6 +56,7 @@ header {
   text-transform: uppercase;
   margin: 0;
   letter-spacing: 0.125rem;
+  transition: all ease 0.3s;
 }
 
 .menu-item {
@@ -66,9 +67,8 @@ header {
   font-weight: 600;
 }
 
-.menu-item:hover {
+.menu-item:hover, .logo:hover {
   translate: 0 -2px;
-  color: var(--foreground-color);
 }
 
 /* Hamburger Menu Toggle */
