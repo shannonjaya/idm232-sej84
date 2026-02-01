@@ -5,7 +5,7 @@ $featured_ids = [12, 27, 29]; //showing these specific featured recipes
 $placeholders = implode(',', array_fill(0, count($featured_ids), '?'));
 
 // Prepare statement
-$stmt = mysqli_prepare($connection, "SELECT id, title, subtitle, main_image, cook_time, servings FROM recipes WHERE id IN ($placeholders)");
+$stmt = mysqli_prepare($connection, "SELECT id, title, subtitle, main_image, cook_time, servings FROM idm232_sej84 WHERE id IN ($placeholders)");
 if ($stmt) {
   $types = str_repeat('i', count($featured_ids));
   $bind_params = [];
