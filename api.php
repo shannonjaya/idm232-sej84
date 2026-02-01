@@ -17,7 +17,7 @@ $idParam  = $_GET['id'] ?? null;
 $id       = isset($idParam) ? (int)$idParam : null;
 
 $endpoint = explode('/', trim((string)$request, '/'))[0] ?? '';
-$table = "idm232_sej84";
+$table = "idm232_recipes";
 
 if ($method === 'GET') {
   if ($endpoint === 'recipes' && !$id) {

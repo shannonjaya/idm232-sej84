@@ -19,7 +19,7 @@
       $recipe_id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 
       if ($recipe_id > 0) {
-        $sql_query = "SELECT * FROM `idm232_sej84` WHERE id = $recipe_id";
+        $sql_query = "SELECT * FROM `idm232_recipes` WHERE id = $recipe_id";
         $result = mysqli_query($connection, $sql_query);
 
         if ($result && mysqli_num_rows($result) > 0) {
