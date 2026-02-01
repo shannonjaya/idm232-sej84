@@ -1,7 +1,7 @@
 <?php
 // Featured/Most Popular Recipe
 $featured = null;
-$featuredRes = mysqli_query($connection, "SELECT id, title, subtitle, main_image FROM idm232_sej84 WHERE id=7 LIMIT 1");
+$featuredRes = mysqli_query($connection, "SELECT id, title, subtitle, main_image FROM recipes WHERE id=7 LIMIT 1");
 if ($featuredRes) {
   $featured = mysqli_fetch_assoc($featuredRes);
   mysqli_free_result($featuredRes);
